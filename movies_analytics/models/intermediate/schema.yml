@@ -1,0 +1,206 @@
+version: 2
+
+models:
+
+  - name: int_movie_diversity
+    description: "Diversity metrics per movie, combining genres, languages, ratings, and financial info"
+    columns:
+      - name: movie_id
+        description: "Unique identifier for the movie"
+        tests:
+          - not_null
+
+      - name: genre_diversity
+        description: "Number of distinct genres in the movie"
+
+      - name: language_diversity
+        description: "Number of distinct languages in the movie"
+
+      - name: avg_rating
+        description: "Average rating of the movie (NULL-safe)"
+
+      - name: revenue_clean
+        description: "Revenue of the movie"
+
+      - name: budget_clean
+        description: "Budget of the movie"
+
+      - name: diversity_score_raw
+        description: "Raw diversity score = genre_diversity + language_diversity"
+
+      - name: diversity_index
+        description: "Final diversity index = diversity_score_raw * avg_rating"
+
+      - name: profitability_flag
+        description: "Indicates if revenue >= budget"
+
+      - name: language_type
+        description: "Single Language or Multilingual movie"
+
+      - name: diversity_level
+        description: "High or Low based on average diversity score threshold"
+
+      - name: diversity_rank
+        description: "Ranking of movies by diversity_index (descending)"
+
+
+  - name: int_genre_performance
+    description: "Aggregated metrics per genre for trend and performance analysis"
+    columns:
+      - name: genre_name
+        description: "Genre name"
+        tests:
+          - not_null
+
+      - name: release_year
+        description: "Year of movie release"
+
+      - name: avg_rating
+        description: "Average rating of movies in this genre"
+
+      - name: total_movies
+        description: "Total number of movies in this genre per year"
+
+      - name: prev_year_avg_rating
+        description: "Previous year average rating for trend comparison"
+
+      - name: rating_change
+        description: "Year-over-year rating change"
+
+      - name: genre_rank
+        description: "Ranking of genres by avg_rating per year"
+
+
+  - name: int_language_performance
+    description: "Aggregated metrics per language for international analysis"
+    columns:
+      - name: language_name
+        description: "Language name"
+        tests:
+          - not_null
+
+      - name: release_year
+        description: "Year of movie release"
+
+      - name: avg_rating
+        description: "Average rating of movies in this language"
+
+      - name: total_movies
+        description: "Total number of movies in this language per year"
+
+      - name: prev_year_avg_rating
+        description: "Previous year average rating"
+
+      - name: rating_change
+        description: "Year-over-year rating change"
+
+      - name: language_rank
+        description: "Ranking of languages by avg_rating per year"
+
+
+  - name: int_country_performance
+    description: "Aggregated metrics per country for international analysis"
+    columns:
+      - name: country_name
+        description: "Country name"
+        tests:
+          - not_null
+
+      - name: release_year
+        description: "Year of movie release"
+
+      - name: avg_rating
+        description: "Average rating of movies from this country"
+
+      - name: total_movies
+        description: "Total number of movies produced in this country"
+
+      - name: genre_diversity
+        description: "Distinct genres produced in the country"
+
+      - name: language_diversity
+        description: "Distinct languages in movies from the country"
+
+      - name: prev_year_avg_rating
+        description: "Previous year average rating"
+
+      - name: rating_change
+        description: "Year-over-year rating change"
+
+
+  - name: int_movie_trends
+    description: "Yearly movie industry trends"
+    columns:
+      - name: release_year
+        description: "Year of movie release"
+        tests:
+          - not_null
+
+      - name: total_movies
+        description: "Total movies released per year"
+
+      - name: avg_rating
+        description: "Average rating per year"
+
+      - name: total_revenue
+        description: "Total revenue per year"
+
+      - name: total_budget
+        description: "Total budget per year"
+
+      - name: prev_year_avg_rating
+        description: "Previous year average rating"
+
+      - name: prev_year_total_movies
+        description: "Previous year movie count"
+
+      - name: rating_change
+        description: "YoY change in rating"
+
+      - name: movie_growth
+        description: "YoY change in total movies"
+
+      - name: profitability_status
+        description: "Profitable or Not Profitable based on revenue vs budget"
+
+      - name: rating_flag
+        description: "Rating category flag (from macro)"
+
+
+  - name: int_company_performance
+    description: "Aggregated metrics per production company with rankings and trend analysis"
+    columns:
+      - name: company_name
+        description: "Production company name"
+        tests:
+          - not_null
+
+      - name: release_year
+        description: "Year of movie release"
+
+      - name: total_movies
+        description: "Total movies produced"
+
+      - name: avg_rating
+        description: "Average rating of company movies"
+
+      - name: total_revenue
+        description: "Total revenue"
+
+      - name: total_budget
+        description: "Total budget"
+
+      - name: prev_year_avg_rating
+        description: "Previous year average rating"
+
+      - name: rating_change
+        description: "Year-over-year rating change"
+
+      - name: profitability_flag
+        description: "Revenue >= budget indicator"
+
+      - name: company_revenue_rank
+        description: "Ranking by revenue per year"
+
+      - name: company_rating_rank
+        description: "Ranking by avg rating per year"

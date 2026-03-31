@@ -1,0 +1,144 @@
+[2026-03-25T02:25:45.885+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-03-25T02:25:45.908+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: movie_data_pipeline.clean_and_enrich manual__2026-03-25T02:25:44.116428+00:00 [queued]>
+[2026-03-25T02:25:45.925+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: movie_data_pipeline.clean_and_enrich manual__2026-03-25T02:25:44.116428+00:00 [queued]>
+[2026-03-25T02:25:45.926+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2026-03-25T02:25:45.946+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): clean_and_enrich> on 2026-03-25 02:25:44.116428+00:00
+[2026-03-25T02:25:45.960+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=225) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-03-25T02:25:45.962+0000] {standard_task_runner.py:72} INFO - Started process 226 to run task
+[2026-03-25T02:25:45.961+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'movie_data_pipeline', 'clean_and_enrich', 'manual__2026-03-25T02:25:44.116428+00:00', '--job-id', '19', '--raw', '--subdir', 'DAGS_FOLDER/movies_clean_dag.py', '--cfg-path', '/tmp/tmpfx2v3xeb']
+[2026-03-25T02:25:45.964+0000] {standard_task_runner.py:105} INFO - Job 19: Subtask clean_and_enrich
+[2026-03-25T02:25:45.987+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:209 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-03-25T02:25:46.033+0000] {task_command.py:467} INFO - Running <TaskInstance: movie_data_pipeline.clean_and_enrich manual__2026-03-25T02:25:44.116428+00:00 [running]> on host c614fc8d418a
+[2026-03-25T02:25:46.137+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='movie_data_pipeline' AIRFLOW_CTX_TASK_ID='clean_and_enrich' AIRFLOW_CTX_EXECUTION_DATE='2026-03-25T02:25:44.116428+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-25T02:25:44.116428+00:00'
+[2026-03-25T02:25:46.138+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-03-25T02:25:46.220+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-25T02:25:46.223+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /app/scripts/data-cleaning.py']
+[2026-03-25T02:25:46.239+0000] {subprocess.py:86} INFO - Output:
+[2026-03-25T02:25:52.181+0000] {subprocess.py:93} INFO - Loading datasets...
+[2026-03-25T02:25:52.182+0000] {subprocess.py:93} INFO - 
+[2026-03-25T02:25:52.183+0000] {subprocess.py:93} INFO - 
+[2026-03-25T02:25:52.183+0000] {subprocess.py:93} INFO - === MOVIES DATASET ===
+[2026-03-25T02:25:52.184+0000] {subprocess.py:93} INFO - Shape: (45486, 5)
+[2026-03-25T02:25:52.184+0000] {subprocess.py:93} INFO - Columns: ['id', 'title', 'release_date', 'budget', 'revenue']
+[2026-03-25T02:25:52.185+0000] {subprocess.py:93} INFO - Data types:
+[2026-03-25T02:25:52.185+0000] {subprocess.py:93} INFO -  id               object
+[2026-03-25T02:25:52.186+0000] {subprocess.py:93} INFO - title            object
+[2026-03-25T02:25:52.187+0000] {subprocess.py:93} INFO - release_date     object
+[2026-03-25T02:25:52.188+0000] {subprocess.py:93} INFO - budget           object
+[2026-03-25T02:25:52.189+0000] {subprocess.py:93} INFO - revenue         float64
+[2026-03-25T02:25:52.190+0000] {subprocess.py:93} INFO - dtype: object
+[2026-03-25T02:25:52.190+0000] {subprocess.py:93} INFO - Missing values:
+[2026-03-25T02:25:52.191+0000] {subprocess.py:93} INFO -  id                 0
+[2026-03-25T02:25:52.193+0000] {subprocess.py:93} INFO - title              6
+[2026-03-25T02:25:52.195+0000] {subprocess.py:93} INFO - release_date      90
+[2026-03-25T02:25:52.196+0000] {subprocess.py:93} INFO - budget          4435
+[2026-03-25T02:25:52.198+0000] {subprocess.py:93} INFO - revenue            6
+[2026-03-25T02:25:52.199+0000] {subprocess.py:93} INFO - dtype: int64
+[2026-03-25T02:25:52.200+0000] {subprocess.py:93} INFO - Duplicate rows: 6
+[2026-03-25T02:25:52.205+0000] {subprocess.py:93} INFO - --------------------------------------------------
+[2026-03-25T02:25:52.206+0000] {subprocess.py:93} INFO - 
+[2026-03-25T02:25:52.207+0000] {subprocess.py:93} INFO - === EXTENDED DATASET ===
+[2026-03-25T02:25:52.207+0000] {subprocess.py:93} INFO - Shape: (45466, 5)
+[2026-03-25T02:25:52.208+0000] {subprocess.py:93} INFO - Columns: ['id', 'genres', 'production_companies', 'production_countries', 'spoken_languages']
+[2026-03-25T02:25:52.208+0000] {subprocess.py:93} INFO - Data types:
+[2026-03-25T02:25:52.209+0000] {subprocess.py:93} INFO -  id                      object
+[2026-03-25T02:25:52.209+0000] {subprocess.py:93} INFO - genres                  object
+[2026-03-25T02:25:52.210+0000] {subprocess.py:93} INFO - production_companies    object
+[2026-03-25T02:25:52.210+0000] {subprocess.py:93} INFO - production_countries    object
+[2026-03-25T02:25:52.211+0000] {subprocess.py:93} INFO - spoken_languages        object
+[2026-03-25T02:25:52.211+0000] {subprocess.py:93} INFO - dtype: object
+[2026-03-25T02:25:52.212+0000] {subprocess.py:93} INFO - Missing values:
+[2026-03-25T02:25:52.212+0000] {subprocess.py:93} INFO -  id                          0
+[2026-03-25T02:25:52.213+0000] {subprocess.py:93} INFO - genres                   2442
+[2026-03-25T02:25:52.213+0000] {subprocess.py:93} INFO - production_companies    12365
+[2026-03-25T02:25:52.213+0000] {subprocess.py:93} INFO - production_countries        0
+[2026-03-25T02:25:52.214+0000] {subprocess.py:93} INFO - spoken_languages            6
+[2026-03-25T02:25:52.214+0000] {subprocess.py:93} INFO - dtype: int64
+[2026-03-25T02:25:52.215+0000] {subprocess.py:93} INFO - Duplicate rows: 30
+[2026-03-25T02:25:52.215+0000] {subprocess.py:93} INFO - --------------------------------------------------
+[2026-03-25T02:25:52.215+0000] {subprocess.py:93} INFO - 
+[2026-03-25T02:25:52.216+0000] {subprocess.py:93} INFO - === RATINGS DATASET ===
+[2026-03-25T02:25:52.216+0000] {subprocess.py:93} INFO - Shape: (9066, 5)
+[2026-03-25T02:25:52.216+0000] {subprocess.py:93} INFO - Columns: ['movie_id', 'last_rated', 'ratings_summary.avg_rating', 'ratings_summary.total_ratings', 'ratings_summary.std_dev']
+[2026-03-25T02:25:52.217+0000] {subprocess.py:93} INFO - Data types:
+[2026-03-25T02:25:52.217+0000] {subprocess.py:93} INFO -  movie_id                           int64
+[2026-03-25T02:25:52.217+0000] {subprocess.py:93} INFO - last_rated                         int64
+[2026-03-25T02:25:52.217+0000] {subprocess.py:93} INFO - ratings_summary.avg_rating       float64
+[2026-03-25T02:25:52.218+0000] {subprocess.py:93} INFO - ratings_summary.total_ratings      int64
+[2026-03-25T02:25:52.218+0000] {subprocess.py:93} INFO - ratings_summary.std_dev          float64
+[2026-03-25T02:25:52.218+0000] {subprocess.py:93} INFO - dtype: object
+[2026-03-25T02:25:52.219+0000] {subprocess.py:93} INFO - Missing values:
+[2026-03-25T02:25:52.219+0000] {subprocess.py:93} INFO -  movie_id                            0
+[2026-03-25T02:25:52.219+0000] {subprocess.py:93} INFO - last_rated                          0
+[2026-03-25T02:25:52.220+0000] {subprocess.py:93} INFO - ratings_summary.avg_rating          0
+[2026-03-25T02:25:52.220+0000] {subprocess.py:93} INFO - ratings_summary.total_ratings       0
+[2026-03-25T02:25:52.221+0000] {subprocess.py:93} INFO - ratings_summary.std_dev          3063
+[2026-03-25T02:25:52.221+0000] {subprocess.py:93} INFO - dtype: int64
+[2026-03-25T02:25:52.221+0000] {subprocess.py:93} INFO - Duplicate rows: 0
+[2026-03-25T02:25:52.222+0000] {subprocess.py:93} INFO - --------------------------------------------------
+[2026-03-25T02:25:52.222+0000] {subprocess.py:93} INFO - 
+[2026-03-25T02:25:52.222+0000] {subprocess.py:93} INFO - Cleaning Movies dataset...
+[2026-03-25T02:25:52.222+0000] {subprocess.py:93} INFO - Missing release_date rows saved: /app/data/missing_release_dates.csv, Total missing: 87
+[2026-03-25T02:25:52.223+0000] {subprocess.py:93} INFO - 
+[2026-03-25T02:25:52.224+0000] {subprocess.py:93} INFO - Financial Summary:
+[2026-03-25T02:25:52.224+0000] {subprocess.py:93} INFO - financial_status
+[2026-03-25T02:25:52.225+0000] {subprocess.py:93} INFO - Both Missing       35245
+[2026-03-25T02:25:52.225+0000] {subprocess.py:93} INFO - Complete            4338
+[2026-03-25T02:25:52.225+0000] {subprocess.py:93} INFO - Budget Missing      3071
+[2026-03-25T02:25:52.225+0000] {subprocess.py:93} INFO - Revenue Missing     2823
+[2026-03-25T02:25:52.226+0000] {subprocess.py:93} INFO - Name: count, dtype: int64
+[2026-03-25T02:25:52.226+0000] {subprocess.py:93} INFO - Suspicious movies saved: /app/data/suspicious_movies.csv, Total: 3071
+[2026-03-25T02:25:52.226+0000] {subprocess.py:93} INFO - 
+[2026-03-25T02:25:52.226+0000] {subprocess.py:93} INFO - Cleaning Extended dataset...
+[2026-03-25T02:25:52.227+0000] {subprocess.py:93} INFO - 
+[2026-03-25T02:25:52.227+0000] {subprocess.py:93} INFO - Cleaning Ratings dataset...
+[2026-03-25T02:25:52.227+0000] {subprocess.py:93} INFO - 
+[2026-03-25T02:25:52.228+0000] {subprocess.py:93} INFO - Enriching Movies dataset...
+[2026-03-25T02:25:52.228+0000] {subprocess.py:93} INFO - 
+[2026-03-25T02:25:52.228+0000] {subprocess.py:93} INFO - === FINAL DATA CHECK ===
+[2026-03-25T02:25:52.228+0000] {subprocess.py:93} INFO - 
+[2026-03-25T02:25:52.229+0000] {subprocess.py:93} INFO - Movies missing values:
+[2026-03-25T02:25:52.229+0000] {subprocess.py:93} INFO -  id                                0
+[2026-03-25T02:25:52.230+0000] {subprocess.py:93} INFO - title                             0
+[2026-03-25T02:25:52.230+0000] {subprocess.py:93} INFO - release_date                     87
+[2026-03-25T02:25:52.230+0000] {subprocess.py:93} INFO - budget                         4435
+[2026-03-25T02:25:52.230+0000] {subprocess.py:93} INFO - revenue                           0
+[2026-03-25T02:25:52.231+0000] {subprocess.py:93} INFO - budget_clean                  38316
+[2026-03-25T02:25:52.231+0000] {subprocess.py:93} INFO - release_date_clean                0
+[2026-03-25T02:25:52.231+0000] {subprocess.py:93} INFO - budget_missing_flag               0
+[2026-03-25T02:25:52.231+0000] {subprocess.py:93} INFO - revenue_missing_flag              0
+[2026-03-25T02:25:52.232+0000] {subprocess.py:93} INFO - suspicious_flag                   0
+[2026-03-25T02:25:52.232+0000] {subprocess.py:93} INFO - financial_status                  0
+[2026-03-25T02:25:52.232+0000] {subprocess.py:93} INFO - revenue_category                  0
+[2026-03-25T02:25:52.233+0000] {subprocess.py:93} INFO - movie_id                      42645
+[2026-03-25T02:25:52.233+0000] {subprocess.py:93} INFO - ratings_summary.avg_rating        0
+[2026-03-25T02:25:52.233+0000] {subprocess.py:93} INFO - dtype: int64
+[2026-03-25T02:25:52.233+0000] {subprocess.py:93} INFO - Movies duplicates: 0
+[2026-03-25T02:25:52.234+0000] {subprocess.py:93} INFO - 
+[2026-03-25T02:25:52.235+0000] {subprocess.py:93} INFO - Extended missing values:
+[2026-03-25T02:25:52.235+0000] {subprocess.py:93} INFO -  id                      0
+[2026-03-25T02:25:52.236+0000] {subprocess.py:93} INFO - genres                  0
+[2026-03-25T02:25:52.236+0000] {subprocess.py:93} INFO - production_companies    0
+[2026-03-25T02:25:52.237+0000] {subprocess.py:93} INFO - production_countries    0
+[2026-03-25T02:25:52.237+0000] {subprocess.py:93} INFO - spoken_languages        0
+[2026-03-25T02:25:52.238+0000] {subprocess.py:93} INFO - dtype: int64
+[2026-03-25T02:25:52.238+0000] {subprocess.py:93} INFO - Extended duplicates: 0
+[2026-03-25T02:25:52.239+0000] {subprocess.py:93} INFO - 
+[2026-03-25T02:25:52.239+0000] {subprocess.py:93} INFO - Ratings missing values:
+[2026-03-25T02:25:52.239+0000] {subprocess.py:93} INFO -  movie_id                         0
+[2026-03-25T02:25:52.240+0000] {subprocess.py:93} INFO - last_rated                       0
+[2026-03-25T02:25:52.240+0000] {subprocess.py:93} INFO - ratings_summary.avg_rating       0
+[2026-03-25T02:25:52.240+0000] {subprocess.py:93} INFO - ratings_summary.total_ratings    0
+[2026-03-25T02:25:52.241+0000] {subprocess.py:93} INFO - ratings_summary.std_dev          0
+[2026-03-25T02:25:52.241+0000] {subprocess.py:93} INFO - dtype: int64
+[2026-03-25T02:25:52.241+0000] {subprocess.py:93} INFO - Ratings duplicates: 0
+[2026-03-25T02:25:52.242+0000] {subprocess.py:93} INFO - 
+[2026-03-25T02:25:52.242+0000] {subprocess.py:93} INFO - Saving cleaned datasets...
+[2026-03-25T02:25:52.242+0000] {subprocess.py:93} INFO - 
+[2026-03-25T02:25:52.243+0000] {subprocess.py:93} INFO - ✅ Cleaned and enriched datasets saved successfully!
+[2026-03-25T02:25:52.318+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-03-25T02:25:52.378+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-03-25T02:25:52.379+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=movie_data_pipeline, task_id=clean_and_enrich, run_id=manual__2026-03-25T02:25:44.116428+00:00, execution_date=20260325T022544, start_date=20260325T022545, end_date=20260325T022552
+[2026-03-25T02:25:52.427+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-03-25T02:25:52.451+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-03-25T02:25:52.453+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

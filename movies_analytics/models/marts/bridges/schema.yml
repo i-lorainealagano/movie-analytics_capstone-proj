@@ -1,0 +1,66 @@
+version: 2
+
+models:
+  - name: bridge_movies_genres
+    description: "Bridge table linking movies to genres"
+    columns:
+      - name: movie_id
+        description: "Movie identifier"
+        tests:
+          - not_null
+      - name: genre_id
+        description: "Genre identifier"
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_genres')
+                field: genre_id
+
+  - name: bridge_movies_languages
+    description: "Bridge table linking movies to languages"
+    columns:
+      - name: movie_id
+        description: "Movie identifier"
+        tests:
+          - not_null
+      - name: language_id
+        description: "Language identifier"
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_languages')
+                field: language_id
+
+  - name: bridge_movies_countries
+    description: "Bridge table linking movies to production countries"
+    columns:
+      - name: movie_id
+        description: "Movie identifier"
+        tests:
+          - not_null
+      - name: country_id
+        description: "Country identifier"
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_countries')
+                field: country_id
+  
+  - name: bridge_movies_companies
+    description: "Bridge table linking movies to production companies"
+    columns:
+      - name: movie_id
+        description: "Movie identifier"
+        tests:
+          - not_null
+      - name: company_id
+        description: "Production company identifier"
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_production_companies')
+                field: company_id

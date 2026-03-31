@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: fact_movie_metrics
+    description: "Fact table with movie metrics"
+    columns:
+      - name: movie_id
+        description: "Foreign key to dim_movies"
+        tests:
+          - not_null
+      - name: budget_clean
+        description: "Cleaned budget value"
+      - name: revenue_clean
+        description: "Cleaned revenue value"
+      - name: revenue_category
+      - name: financial_status
+      - name: avg_rating
+      - name: has_ratings
+      - name: budget_missing_flag
+      - name: revenue_missing_flag
+      - name: suspicious_flag
+      - name: data_completeness

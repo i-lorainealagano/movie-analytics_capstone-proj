@@ -1,0 +1,65 @@
+version: 2
+
+models:
+  - name: dim_movies
+    description: "Dimension table for movies"
+    columns:
+      - name: movie_id
+        description: "Primary key for movies"
+        tests:
+          - unique
+          - not_null
+      - name: title
+        description: "Movie title"
+      - name: release_year
+      - name: release_month
+
+  - name: dim_genres
+    description: "Dimension table for genres"
+    columns:
+      - name: genre_id
+        description: "Primary key for genres"
+        tests:
+          - unique
+          - not_null
+      - name: genre_name
+        description: "Name of the genre"
+
+  -  name: dim_languages
+     description: "Dimension table containing all unique spoken languages extracted from movie data"
+     columns:
+      - name: language_id
+        description: "Primary key for languages"
+        tests:
+          - unique
+          - not_null
+
+      - name: language_name
+        description: "Name of the language spoken in the movie"
+        tests:
+          - not_null
+
+  - name: dim_countries
+    description: "Dimension table for production countries"
+    columns:
+      - name: country_id
+        description: "Primary key for countries"
+        tests:
+          - unique
+          - not_null
+      - name: country_name
+        description: "Country name"
+
+  - name: dim_production_companies
+    description: "Dimension table containing all unique production companies involved in movie production"
+    columns:
+      - name: company_id
+        description: "Primary key for production companies"
+        tests:
+          - unique
+          - not_null
+
+      - name: company_name
+        description: "Name of the production company"
+        tests:
+          - not_null

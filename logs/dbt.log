@@ -1,0 +1,105 @@
+[0m17:54:21.946570 [debug] [MainThread]: Got an exception trying to initialize tracking
+
+
+============================== 17:54:22.134456 | f2d21354-51d6-495f-a070-683de11031cb ==============================
+[0m17:54:22.134456 [info ] [MainThread]: Running with dbt=1.11.7
+[0m17:54:22.134456 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\lorai_3r1nn9u\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'invocation_command': 'dbt init movies_analytics', 'use_colors': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m17:54:22.162664 [debug] [MainThread]: Starter project path: C:\Users\lorai_3r1nn9u\movie-analytics_capstone-proj\capstone_env\Lib\site-packages\dbt\include\starter_project
+[0m17:54:22.208490 [info ] [MainThread]: 
+Your new dbt project "movies_analytics" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m17:54:22.208490 [info ] [MainThread]: Setting up your profile.
+[0m17:59:51.035960 [info ] [MainThread]: Profile movies_analytics written to C:\Users\lorai_3r1nn9u\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m17:59:51.056141 [debug] [MainThread]: Command `dbt init` succeeded at 17:59:51.052262 after 329.17 seconds
+[0m17:59:51.059730 [debug] [MainThread]: Flushing usage events
+[0m14:05:10.021780 [debug] [MainThread]: Got an exception trying to initialize tracking
+
+
+============================== 14:05:10.583272 | 7d9f747b-ea0f-4a9c-bb4d-2813dd242abf ==============================
+[0m14:05:10.583272 [info ] [MainThread]: Running with dbt=1.11.7
+[0m14:05:10.583272 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\lorai_3r1nn9u\\.dbt', 'use_colors': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt run --select public_dims.dim_genres.sql', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m14:05:10.583272 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Users\lorai_3r1nn9u\movie-analytics_capstone-proj\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m14:05:10.583272 [debug] [MainThread]: Command `dbt run` failed at 14:05:10.583272 after 0.78 seconds
+[0m14:05:10.583272 [debug] [MainThread]: Flushing usage events
+[0m14:05:47.537333 [debug] [MainThread]: Got an exception trying to initialize tracking
+
+
+============================== 14:05:47.725829 | d72ed650-23d1-453a-8c6e-378010bc7fc9 ==============================
+[0m14:05:47.725829 [info ] [MainThread]: Running with dbt=1.11.7
+[0m14:05:47.726631 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\lorai_3r1nn9u\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'invocation_command': 'dbt run --full-refresh', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m14:05:47.726631 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Users\lorai_3r1nn9u\movie-analytics_capstone-proj\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m14:05:47.726631 [debug] [MainThread]: Command `dbt run` failed at 14:05:47.726631 after 0.27 seconds
+[0m14:05:47.726631 [debug] [MainThread]: Flushing usage events
+[0m05:51:45.499701 [debug] [MainThread]: Got an exception trying to initialize tracking
+
+
+============================== 05:51:45.703051 | 7e4a55cd-fc9a-49b6-ba19-60c42e3a2c20 ==============================
+[0m05:51:45.703051 [info ] [MainThread]: Running with dbt=1.11.7
+[0m05:51:45.710482 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\lorai_3r1nn9u\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt run', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m05:51:45.711133 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Users\lorai_3r1nn9u\movie-analytics_capstone-proj\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m05:51:45.711660 [debug] [MainThread]: Command `dbt run` failed at 05:51:45.711660 after 0.32 seconds
+[0m05:51:45.711660 [debug] [MainThread]: Flushing usage events
+[0m08:06:16.558863 [debug] [MainThread]: Got an exception trying to initialize tracking
+
+
+============================== 08:06:16.706708 | c5060552-363f-4924-82e3-2bd15a98de88 ==============================
+[0m08:06:16.706708 [info ] [MainThread]: Running with dbt=1.11.7
+[0m08:06:16.708048 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\lorai_3r1nn9u\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt clean', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m08:06:16.708048 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Users\lorai_3r1nn9u\movie-analytics_capstone-proj\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m08:06:16.709501 [debug] [MainThread]: Command `dbt clean` failed at 08:06:16.709501 after 0.26 seconds
+[0m08:06:16.710519 [debug] [MainThread]: Flushing usage events
+[0m08:06:24.328874 [debug] [MainThread]: Got an exception trying to initialize tracking
+
+
+============================== 08:06:24.440011 | d47c6fcb-66be-4660-accd-a531b32a1009 ==============================
+[0m08:06:24.440011 [info ] [MainThread]: Running with dbt=1.11.7
+[0m08:06:24.441010 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\lorai_3r1nn9u\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt run', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m08:06:24.441010 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Users\lorai_3r1nn9u\movie-analytics_capstone-proj\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m08:06:24.443011 [debug] [MainThread]: Command `dbt run` failed at 08:06:24.443011 after 0.18 seconds
+[0m08:06:24.444563 [debug] [MainThread]: Flushing usage events
+[0m08:25:22.225441 [debug] [MainThread]: Got an exception trying to initialize tracking
+
+
+============================== 08:25:22.357699 | a91dd096-81e2-4885-828d-cfbf776bc1d9 ==============================
+[0m08:25:22.357699 [info ] [MainThread]: Running with dbt=1.11.7
+[0m08:25:22.358716 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\lorai_3r1nn9u\\.dbt', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt run', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m08:25:22.358716 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Users\lorai_3r1nn9u\movie-analytics_capstone-proj\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m08:25:22.358716 [debug] [MainThread]: Command `dbt run` failed at 08:25:22.358716 after 0.19 seconds
+[0m08:25:22.358716 [debug] [MainThread]: Flushing usage events

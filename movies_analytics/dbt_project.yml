@@ -1,0 +1,40 @@
+name: 'movies_analytics'
+version: '1.0.0'
+config-version: 2
+
+profile: 'movies_analytics'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  movies_analytics:
+
+    staging:
+      +schema: stg
+      +materialized: view
+
+    marts:
+      dimensions:
+        +schema: dims
+        +materialized: table
+
+      facts:
+        +schema: fact
+        +materialized: table
+
+      bridges:
+        +schema: bridge
+        +materialized: table
+
+    intermediate:
+      +schema: int
+      +materialized: table
