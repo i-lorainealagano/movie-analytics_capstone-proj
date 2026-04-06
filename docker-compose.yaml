@@ -26,7 +26,7 @@ services:
       - ./airflow/dags:/opt/airflow/dags
       - ./airflow/logs:/opt/airflow/logs
       - ./data:/app/data
-      - ./scripts:/app/scripts
+      - ./scripts:/opt/airflow/scripts 
       - ./dbt:/opt/airflow/dbt
     ports:
       - "8080:8080"
@@ -48,7 +48,7 @@ services:
       - ./airflow/dags:/opt/airflow/dags
       - ./airflow/logs:/opt/airflow/logs
       - ./data:/app/data
-      - ./scripts:/app/scripts
+      - ./scripts:/opt/airflow/scripts 
       - ./dbt:/opt/airflow/dbt
     command: airflow scheduler
 

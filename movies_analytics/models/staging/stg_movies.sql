@@ -1,31 +1,44 @@
-{{ config(materialized='table') }}  -- or 'incremental' if large
+{{ config(materialized='table') }}
 
 SELECT
-    m.movie_id,
+    m.id AS movie_id,
     m.title,
-
     m.release_date_clean::date AS release_date,
     m.release_year,
     m.release_month,
 
-    m.budget_clean,
-    m.revenue_clean,
-
+    m.budget_clean::numeric AS budget_clean,
+    m.revenue_clean::numeric AS revenue_clean,
     m.revenue_category,
-    m.financial_status, 
+    m.financial_status,
 
-    m.has_ratings,
-    m."ratings_summary.avg_rating" AS avg_rating,
+    CASE 
+        WHEN m."ratings_summary.total_ratings" > 0 THEN m."ratings_summary.avg_rating"
+    END AS avg_rating,
+    m."ratings_summary.total_ratings"::int AS total_ratings,
+    m."ratings_summary.total_ratings" > 0 AS has_ratings,
 
-    m.budget_missing_flag,
-    m.revenue_missing_flag,
-    m.suspicious_flag,
+    m.budget_missing_flag::boolean,
+    m.revenue_missing_flag::boolean,
+    m.suspicious_flag::boolean,
 
-    m.genres::jsonb AS genres,
-    m.spoken_languages::jsonb AS spoken_languages,
-    m.production_countries::jsonb AS production_countries,
-    m.production_companies::jsonb AS production_companies,
+    CASE 
+        WHEN jsonb_array_length(spoken_languages::jsonb) > 1 THEN TRUE
+        ELSE FALSE
+    END AS multi_language,
+
+    CASE 
+        WHEN jsonb_array_length(production_countries::jsonb) > 1 THEN TRUE
+        ELSE FALSE
+    END AS multi_country,
+
+    jsonb_array_length(spoken_languages::jsonb) AS num_languages,
+    jsonb_array_length(production_countries::jsonb) AS num_countries,
     
+    m.genres,
+    m.production_companies,
+    m.production_countries,
+    m.spoken_languages,
     m.data_completeness
-    
-FROM {{ source('raw', 'clean_movies') }} AS m
+
+FROM {{ source('movies_src', 'raw_movies') }} m

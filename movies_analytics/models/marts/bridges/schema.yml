@@ -1,66 +1,90 @@
 version: 2
 
 models:
+
   - name: bridge_movies_genres
-    description: "Bridge table linking movies to genres"
+    description: "Bridge table connecting movies to genres (many-to-many)."
     columns:
       - name: movie_id
-        description: "Movie identifier"
+        description: "Foreign key referencing dim_movies"
         tests:
           - not_null
-      - name: genre_id
-        description: "Genre identifier"
+          - relationships:
+              arguments:
+                to: ref('dim_movies')
+                field: movie_id
+
+      - name: genre_name
+        description: "Foreign key referencing dim_genres"
         tests:
           - not_null
           - relationships:
               arguments:
                 to: ref('dim_genres')
-                field: genre_id
+                field: genre_name
+
 
   - name: bridge_movies_languages
-    description: "Bridge table linking movies to languages"
+    description: "Bridge table connecting movies to spoken languages."
     columns:
       - name: movie_id
-        description: "Movie identifier"
+        description: "Foreign key referencing dim_movies"
         tests:
           - not_null
-      - name: language_id
-        description: "Language identifier"
+          - relationships:
+              arguments:
+                to: ref('dim_movies')
+                field: movie_id
+
+      - name: language_code
+        description: "Foreign key referencing dim_languages"
         tests:
           - not_null
           - relationships:
               arguments:
                 to: ref('dim_languages')
-                field: language_id
+                field: language_code
+
 
   - name: bridge_movies_countries
-    description: "Bridge table linking movies to production countries"
+    description: "Bridge table connecting movies to production countries."
     columns:
       - name: movie_id
-        description: "Movie identifier"
+        description: "Foreign key referencing dim_movies"
         tests:
           - not_null
-      - name: country_id
-        description: "Country identifier"
+          - relationships:
+              arguments:
+                to: ref('dim_movies')
+                field: movie_id
+
+      - name: country_code
+        description: "Foreign key referencing dim_countries"
         tests:
           - not_null
           - relationships:
               arguments:
                 to: ref('dim_countries')
-                field: country_id
-  
+                field: country_code
+
+
   - name: bridge_movies_companies
-    description: "Bridge table linking movies to production companies"
+    description: "Bridge table connecting movies to production companies."
     columns:
       - name: movie_id
-        description: "Movie identifier"
+        description: "Foreign key referencing dim_movies"
         tests:
           - not_null
-      - name: company_id
-        description: "Production company identifier"
+          - relationships:
+              arguments:
+                to: ref('dim_movies')
+                field: movie_id
+
+      - name: company_name
+        description: "Foreign key referencing dim_production_companies"
         tests:
           - not_null
           - relationships:
               arguments:
                 to: ref('dim_production_companies')
-                field: company_id
+                field: company_name

@@ -11,13 +11,26 @@ models:
           - not_null
       - name: title
         description: "Movie title"
+      - name: release_date
+        description: "Cleaned release date"
       - name: release_year
       - name: release_month
+      - name: budget_clean
+      - name: revenue_clean
+      - name: revenue_category
+      - name: financial_status
+      - name: avg_rating
+      - name: total_ratings
+      - name: has_ratings
+      - name: budget_missing_flag
+      - name: revenue_missing_flag
+      - name: suspicious_flag
+      - name: data_completeness
 
   - name: dim_genres
     description: "Dimension table for genres"
     columns:
-      - name: genre_id
+      - name: genre_name
         description: "Primary key for genres"
         tests:
           - unique
@@ -28,38 +41,34 @@ models:
   -  name: dim_languages
      description: "Dimension table containing all unique spoken languages extracted from movie data"
      columns:
-      - name: language_id
-        description: "Primary key for languages"
+      - name: language_code
+        description: "ISO code of the languages"
         tests:
           - unique
           - not_null
-
       - name: language_name
-        description: "Name of the language spoken in the movie"
+        description: "Full language name"
         tests:
           - not_null
 
   - name: dim_countries
     description: "Dimension table for production countries"
     columns:
-      - name: country_id
-        description: "Primary key for countries"
+      - name: country_code
+        description: "ISO code of the country"
         tests:
           - unique
           - not_null
       - name: country_name
         description: "Country name"
+        tests:
+          - not_null
 
   - name: dim_production_companies
     description: "Dimension table containing all unique production companies involved in movie production"
     columns:
-      - name: company_id
-        description: "Primary key for production companies"
+      - name: company_name
+        description: "Primary key for production companies name"
         tests:
           - unique
-          - not_null
-
-      - name: company_name
-        description: "Name of the production company"
-        tests:
           - not_null

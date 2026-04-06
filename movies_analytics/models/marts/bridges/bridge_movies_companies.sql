@@ -1,8 +1,9 @@
 {{ config(materialized='table') }}
 
 SELECT
-    m.movie_id,
-    dc.company_id
-FROM {{ ref('stg_movies') }} m
-JOIN {{ ref('dim_production_companies') }} dc
-    ON m.company_name = dc.company_name
+    movie_id,
+    UPPER(TRIM(REGEXP_REPLACE(company, '[\[\]\"㉿]', '', 'g'))) AS company_name
+FROM {{ ref('stg_movies') }},
+UNNEST(string_to_array(production_companies, ',')) AS company
+WHERE production_companies IS NOT NULL
+    AND UPPER(TRIM(REGEXP_REPLACE(company, '[\[\]\"㉿]', '', 'g'))) != ''

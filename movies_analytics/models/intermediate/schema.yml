@@ -9,6 +9,10 @@ models:
         description: "Unique identifier for the movie"
         tests:
           - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_movies')
+                field: movie_id
 
       - name: genre_diversity
         description: "Number of distinct genres in the movie"
@@ -51,6 +55,10 @@ models:
         description: "Genre name"
         tests:
           - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_genres')
+                field: genre_name
 
       - name: release_year
         description: "Year of movie release"
@@ -67,17 +75,18 @@ models:
       - name: rating_change
         description: "Year-over-year rating change"
 
-      - name: genre_rank
-        description: "Ranking of genres by avg_rating per year"
-
 
   - name: int_language_performance
     description: "Aggregated metrics per language for international analysis"
     columns:
-      - name: language_name
-        description: "Language name"
+      - name: language_code   # ✅ FIXED (was language_name)
+        description: "Language code"
         tests:
           - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_languages')
+                field: language_code
 
       - name: release_year
         description: "Year of movie release"
@@ -101,10 +110,14 @@ models:
   - name: int_country_performance
     description: "Aggregated metrics per country for international analysis"
     columns:
-      - name: country_name
-        description: "Country name"
+      - name: country_code   # ✅ FIXED (was country_name)
+        description: "Country code"
         tests:
           - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_countries')
+                field: country_code
 
       - name: release_year
         description: "Year of movie release"
@@ -115,56 +128,14 @@ models:
       - name: total_movies
         description: "Total number of movies produced in this country"
 
-      - name: genre_diversity
-        description: "Distinct genres produced in the country"
-
-      - name: language_diversity
-        description: "Distinct languages in movies from the country"
-
       - name: prev_year_avg_rating
         description: "Previous year average rating"
 
       - name: rating_change
         description: "Year-over-year rating change"
 
-
-  - name: int_movie_trends
-    description: "Yearly movie industry trends"
-    columns:
-      - name: release_year
-        description: "Year of movie release"
-        tests:
-          - not_null
-
-      - name: total_movies
-        description: "Total movies released per year"
-
-      - name: avg_rating
-        description: "Average rating per year"
-
-      - name: total_revenue
-        description: "Total revenue per year"
-
-      - name: total_budget
-        description: "Total budget per year"
-
-      - name: prev_year_avg_rating
-        description: "Previous year average rating"
-
-      - name: prev_year_total_movies
-        description: "Previous year movie count"
-
-      - name: rating_change
-        description: "YoY change in rating"
-
-      - name: movie_growth
-        description: "YoY change in total movies"
-
-      - name: profitability_status
-        description: "Profitable or Not Profitable based on revenue vs budget"
-
-      - name: rating_flag
-        description: "Rating category flag (from macro)"
+      - name: country_rank
+        description: "Ranking of countries by avg_rating per year"
 
 
   - name: int_company_performance
@@ -174,6 +145,10 @@ models:
         description: "Production company name"
         tests:
           - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_production_companies')
+                field: company_name
 
       - name: release_year
         description: "Year of movie release"
@@ -204,3 +179,51 @@ models:
 
       - name: company_rating_rank
         description: "Ranking by avg rating per year"
+
+
+  - name: int_movie_trends
+    description: "Yearly movie industry trends"
+    columns:
+      - name: release_year
+        description: "Year of movie release"
+        tests:
+          - not_null
+
+      - name: total_movies
+        description: "Total movies released per year"
+
+      - name: avg_rating
+        description: "Average rating per year"
+
+      - name: total_revenue
+        description: "Total revenue per year"
+
+      - name: total_budget
+        description: "Total budget per year"
+
+      - name: prev_year_avg_rating
+        description: "Previous year average rating"
+
+      - name: prev_year_total_movies
+        description: "Previous year movie count"
+
+      - name: prev_year_revenue
+        description: "Previous year revenue"
+
+      - name: rating_change
+        description: "YoY change in rating"
+
+      - name: movie_growth
+        description: "YoY change in total movies"
+
+      - name: revenue_growth
+        description: "YoY change in revenue"
+
+      - name: profitability_status
+        description: "Profitable or Not Profitable based on revenue vs budget"
+
+      - name: rating_flag
+        description: "Rating category flag (from macro)"
+
+      - name: revenue_rank
+        description: "Ranking of years by total revenue"

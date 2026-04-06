@@ -6,6 +6,6 @@ movies_analytics:
       host: localhost
       user: airflow
       password: airflow
-      port: 5432
+      port: 5433
       dbname: movie_db
       schema: public

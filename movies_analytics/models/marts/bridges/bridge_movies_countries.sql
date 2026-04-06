@@ -2,7 +2,7 @@
 
 SELECT
     m.movie_id,
-    d.country_id
-FROM {{ ref('stg_movies') }} m
-JOIN {{ ref('dim_countries') }} d
-    ON m.country_name = d.country_name
+    c->>'iso_3166_1' AS country_code
+FROM {{ ref('stg_movies') }} m,
+LATERAL jsonb_array_elements(m.production_countries::jsonb) c
+WHERE m.production_countries IS NOT NULL
