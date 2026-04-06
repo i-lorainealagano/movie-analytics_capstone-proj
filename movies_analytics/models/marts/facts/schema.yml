@@ -2,21 +2,67 @@ version: 2
 
 models:
   - name: fact_movie_metrics
-    description: "Fact table with movie metrics"
+    description: "Fact table containing movie-level metrics such as budget, revenue, ratings, and data quality flags. Each row represents one movie."
     columns:
       - name: movie_id
-        description: "Foreign key to dim_movies"
+        description: "Primary key referencing dim_movies"
         tests:
           - not_null
+          - unique
+          - relationships:
+              arguments:
+                to: ref('dim_movies')
+                field: movie_id
+
+      - name: release_year
+        description: "Year the movie was released"
+        tests:
+          - not_null
+
       - name: budget_clean
-        description: "Cleaned budget value"
+        description: "Cleaned budget of the movie in numeric format"
+
       - name: revenue_clean
-        description: "Cleaned revenue value"
+        description: "Cleaned revenue of the movie in numeric format"
+
       - name: revenue_category
+        description: "Categorized revenue (Low / Medium / High)"
+
       - name: financial_status
+        description: "Financial status derived from budget and revenue"
+
       - name: avg_rating
+        description: "Average rating from all users"
+
+      - name: total_ratings
+        description: "Total number of ratings received"
+
       - name: has_ratings
+        description: "Boolean flag if the movie has ratings"
+
       - name: budget_missing_flag
+        description: "Flag indicating if the budget is missing"
+
       - name: revenue_missing_flag
+        description: "Flag indicating if the revenue is missing"
+
       - name: suspicious_flag
+        description: "Flag indicating suspicious data (e.g., revenue without budget)"
+
+      - name: multi_language
+        description: "Boolean flag if the movie has multiple spoken languages"
+
+      - name: multi_country
+        description: "Boolean flag if the movie was produced in multiple countries"
+
+      - name: num_languages
+        description: "Number of spoken languages in the movie"
+
+      - name: num_countries
+        description: "Number of production countries for the movie"
+
       - name: data_completeness
+        description: "Data completeness status for the movie"
+
+      - name: roi
+        description: "Return on Investment calculated as revenue_clean / budget_clean, NULL if budget_clean is 0 or NULL"

@@ -1,9 +1,12 @@
--- stg_movies_companies.sql
 {{ config(materialized='table') }}
 
-SELECT
-    m.movie_id,
-    company->>'name' AS company_name
-FROM {{ ref('stg_movies') }} m
-CROSS JOIN LATERAL m.production_companies AS company  
-WHERE m.production_companies IS NOT NULL
+WITH split_companies AS (
+    SELECT
+        DISTINCT
+        UPPER(TRIM(REGEXP_REPLACE(company, '[\[\]\"㉿]', '', 'g'))) AS company_name
+    FROM {{ ref('stg_movies') }},
+    UNNEST(string_to_array(production_companies, ',')) AS company
+)
+SELECT *
+FROM split_companies
+WHERE company_name != ''

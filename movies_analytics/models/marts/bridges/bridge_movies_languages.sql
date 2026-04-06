@@ -2,7 +2,7 @@
 
 SELECT
     m.movie_id,
-    d.language_id
-FROM {{ ref('stg_movies') }} m
-JOIN {{ ref('dim_languages') }} d
-    ON m.language_name = d.language_name
+    l->>'iso_639_1' AS language_code
+FROM {{ ref('stg_movies') }} m,
+LATERAL jsonb_array_elements(m.spoken_languages::jsonb) l
+WHERE m.spoken_languages IS NOT NULL
