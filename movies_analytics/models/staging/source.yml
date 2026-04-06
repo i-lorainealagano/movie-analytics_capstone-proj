@@ -1,11 +1,9 @@
 version: 2
 
 sources:
-  - name: raw
+  - name: movies_src
     database: movie_db
     schema: public
 
     tables:
-      - name: clean_movies
-      - name: clean_extended
-      - name: clean_ratings
+      - name: raw_movies
